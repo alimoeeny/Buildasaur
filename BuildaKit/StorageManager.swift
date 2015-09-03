@@ -21,7 +21,6 @@ public class StorageManager {
     private(set) public var servers: [XcodeServerConfig] = []
     private(set) public var projects: [Project] {
         didSet {
-            
             NSNotificationCenter.defaultCenter().postNotificationName(ProjectsDidChangeNotification, object: self)
         }
     }
@@ -145,8 +144,8 @@ public class StorageManager {
         
         self.loadProjects()
         self.loadServers()
-        self.loadSyncers()
         self.loadBuildTemplates()
+        self.loadSyncers()
     }
     
     func loadServers() {

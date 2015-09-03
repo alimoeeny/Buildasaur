@@ -27,6 +27,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         Logging.setup(alsoIntoFile: true)
         self.menuItemManager.setupMenuBarItem()
+        
+        //starts syncing right after app gets launched - not smart in GUI mode
+        //but you can see that syncers get loaded correctly and work for multiple projects just fine already.
+        //we need the UI to be able to create a new syncer (not a new project)
+//        StorageManager.sharedInstance.startSyncers()
     }
 
     func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
